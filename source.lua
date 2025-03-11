@@ -1,8 +1,4 @@
 -- короче, сурс либки - Tokyo Lib.
-
-
-
-
 -- нейроне)
 local startupArgs = ({...})[1] or {}
 
