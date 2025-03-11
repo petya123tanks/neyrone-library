@@ -1,3 +1,9 @@
+-- короче, сурс либки - Tokyo Lib.
+
+
+
+
+-- нейроне)
 local startupArgs = ({...})[1] or {}
 
 if getgenv().library ~= nil then
@@ -15,8 +21,6 @@ end
 -- // Variables
 local players, http, runservice, inputservice, tweenService, stats, actionservice = gs('Players'), gs('HttpService'), gs('RunService'), gs('UserInputService'), gs('TweenService'), gs('Stats'), gs('ContextActionService')
 local localplayer = players.LocalPlayer
-local Decimals = 4
-local Clock = os.clock()
 local setByConfig = false
 local floor, ceil, huge, pi, clamp = math.floor, math.ceil, math.huge, math.pi, math.clamp
 local c3new, fromrgb, fromhsv = Color3.new, Color3.fromRGB, Color3.fromHSV
