@@ -73,24 +73,24 @@ library.themes = {
     {
         name = 'Default', -- нейроне круто типо
         theme = {
-            ['Accent']                    = fromrgb(1,210,254);
-            ['Background']                = fromrgb(42,42,42); --
+            ['Accent']                    = fromrgb(52,134,235);
+            ['Background']                = fromrgb(41,41,44); --
             ['Border']                    = fromrgb(0,0,0);
-            ['Border 1']                  = fromrgb(1,1,1);
-            ['Border 2']                  = fromrgb(42,42,42); --
+            ['Border 1']                  = fromrgb(60,60,70); -- 1 1 1
+            ['Border 2']                  = fromrgb(41,41,44); --
             ['Border 3']                  = fromrgb(10,10,10);
             ['Primary Text']              = fromrgb(235,235,235);
-            ['Group Background']          = fromrgb(30,30,30);
-            ['Selected Tab Background']   = fromrgb(30,30,30);
+            ['Group Background']          = fromrgb(24,24,24);
+            ['Selected Tab Background']   = fromrgb(32,32,33);
             ['Unselected Tab Background'] = fromrgb(42,42,42); --
-            ['Selected Tab Text']         = fromrgb(245,245,245);
-            ['Unselected Tab Text']       = fromrgb(145,145,145);
-            ['Section Background']        = fromrgb(30,30,30);
-            ['Option Text 1']             = fromrgb(245,245,245);
-            ['Option Text 2']             = fromrgb(195,195,195);
-            ['Option Text 3']             = fromrgb(145,145,145);
-            ['Option Border 1']           = fromrgb(47,47,47);
-            ['Option Border 2']           = fromrgb(0,0,0);
+            ['Selected Tab Text']         = fromrgb(52,134,235);
+            ['Unselected Tab Text']       = fromrgb(195,195,195);
+            ['Section Background']        = fromrgb(32,32,33);
+            ['Option Text 1']             = fromrgb(167,167,167);
+            ['Option Text 2']             = fromrgb(233,233,233);
+            ['Option Text 3']             = fromrgb(167,167,167);
+            ['Option Border 1']           = fromrgb(20,20,20);
+            ['Option Border 2']           = fromrgb(40,40,40);
             ['Option Background']         = fromrgb(30,30,30);
             ["Risky Text"]                = fromrgb(175, 21, 21);
             ["Risky Text Enabled"]        = fromrgb(255, 41, 41);
@@ -4718,13 +4718,13 @@ function library:CreateSettingsTab(menu)
         end
     end
 
-    configSection:AddButton({text = 'Load', confirm = true, callback = function()
+    configSection:AddButton({text = 'Load', confirm = false, callback = function()
         library:LoadConfig(library.flags.selectedconfig);
     end}):AddButton({text = 'Save', confirm = true, callback = function()
         library:SaveConfig(library.flags.selectedconfig);
     end})
 
-    configSection:AddButton({text = 'Create', confirm = true, callback = function()
+    configSection:AddButton({text = 'Create', confirm = false, callback = function()
         if library:GetConfig(library.flags.configinput) then
             library:SendNotification('Config \''..library.flags.configinput..'\' already exists.', 5, c3new(1,0,0));
             return
@@ -4750,10 +4750,6 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddButton({text = 'Rejoin Game', confirm = true, callback = function()
         game:GetService("TeleportService"):Teleport(game.PlaceId);
-    end})
-
-    mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
     end})
 
     mainSection:AddButton({text = "Unload", confirm = true,
