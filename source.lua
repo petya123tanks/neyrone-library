@@ -71,7 +71,7 @@ local library = {
 
 library.themes = {
     {
-        name = 'Neyrone', -- нейроне круто типо
+        name = 'Default', -- нейроне круто типо
         theme = {
             ['Accent']                    = fromrgb(1,210,254);
             ['Background']                = fromrgb(32,32,32);
