@@ -64,9 +64,9 @@ local library = {
     open = false;
     opening = false;
     hasInit = false;
-    cheatname = 'Neyrone'; -- но
-    gamename = 'Defusal';
-    fileext = '.txt';
+    cheatname = startupArgs.cheatname or 'Clanware';
+    gamename = startupArgs.gamename or 'Universal';
+    fileext = startupArgs.fileext or '.txt';
 }
 
 library.themes = {
@@ -4767,7 +4767,7 @@ function library:CreateSettingsTab(menu)
 
     mainSection:AddSeparator({text = 'Indicators'});
 
-    mainSection:AddToggle({text = 'Watermark', flag = 'watermark_enabled', state = true,});
+    mainSection:AddToggle({text = 'Watermark', flag = 'watermark_enabled', state = false,}); -- говно ватермарка если честно
 
     mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', min = 0, max = 100, increment = .1, value = 6});
     mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', min = 0, max = 100, increment = .1, value = 1});
@@ -4805,14 +4805,14 @@ themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStr
             end
         end
         setByPreset = false
-    end}):Select('Neyrone');
+    end}):Select('Default');
 
     for i, v in pairs(library.theme) do
         themeSection:AddColor({text = i, flag = i, color = library.theme[i], callback = function(c3)
             library.theme[i] = c3
             library:SetTheme(library.theme)
             if not setByPreset and not setByConfig then 
-                library.options.preset_theme:Select('Neyrone')
+                library.options.preset_theme:Select('Custom')
             end
         end});
     end
