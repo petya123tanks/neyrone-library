@@ -4812,7 +4812,7 @@ themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStr
             library.theme[i] = c3
             library:SetTheme(library.theme)
             if not setByPreset and not setByConfig then 
-                library.options.preset_theme:Select('Custom')
+                library.options.preset_theme:Select('Neyrone')
             end
         end});
     end
