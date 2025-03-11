@@ -64,34 +64,34 @@ local library = {
     open = false;
     opening = false;
     hasInit = false;
-    cheatname = startupArgs.cheatname or 'Clanware';
-    gamename = startupArgs.gamename or 'Universal';
-    fileext = startupArgs.fileext or '.txt';
+    cheatname = 'Neyrone'; -- но
+    gamename = 'Defusal';
+    fileext = '.txt';
 }
 
 library.themes = {
     {
-        name = 'Default',
+        name = 'Neyrone', -- нейроне круто типо
         theme = {
-            ['Accent']                    = fromrgb(124,97,196);
-            ['Background']                = fromrgb(17,17,17);
+            ['Accent']                    = fromrgb(1,210,254);
+            ['Background']                = fromrgb(32,32,32);
             ['Border']                    = fromrgb(0,0,0);
-            ['Border 1']                  = fromrgb(47,47,47);
-            ['Border 2']                  = fromrgb(17,17,17);
+            ['Border 1']                  = fromrgb(1,1,1);
+            ['Border 2']                  = fromrgb(30,30,30);
             ['Border 3']                  = fromrgb(10,10,10);
             ['Primary Text']              = fromrgb(235,235,235);
-            ['Group Background']          = fromrgb(17,17,17);
-            ['Selected Tab Background']   = fromrgb(17,17,17);
-            ['Unselected Tab Background'] = fromrgb(17,17,17);
+            ['Group Background']          = fromrgb(30,30,30);
+            ['Selected Tab Background']   = fromrgb(30,30,30);
+            ['Unselected Tab Background'] = fromrgb(46,46,46);
             ['Selected Tab Text']         = fromrgb(245,245,245);
             ['Unselected Tab Text']       = fromrgb(145,145,145);
-            ['Section Background']        = fromrgb(17,17,17);
+            ['Section Background']        = fromrgb(30,30,30);
             ['Option Text 1']             = fromrgb(245,245,245);
             ['Option Text 2']             = fromrgb(195,195,195);
             ['Option Text 3']             = fromrgb(145,145,145);
             ['Option Border 1']           = fromrgb(47,47,47);
             ['Option Border 2']           = fromrgb(0,0,0);
-            ['Option Background']         = fromrgb(35,35,35);
+            ['Option Background']         = fromrgb(30,30,30);
             ["Risky Text"]                = fromrgb(175, 21, 21);
             ["Risky Text Enabled"]        = fromrgb(255, 41, 41);
         }
