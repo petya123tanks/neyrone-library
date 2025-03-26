@@ -2428,15 +2428,6 @@ function library:init()
                             bind.indicatorValue:SetKey((bind.text == nil or bind.text == '') and (bind.flag == nil and 'unknown' or bind.flag) or bind.text); -- this is so dumb
                             bind.indicatorValue:SetValue('[Always]');
                         end
-                        
-                        function bind:SetText(str) -- ХУЙ <== ctrl+f pro
-                            if typeof(str) == 'string' then
-                                self.text = str;
-                                self.objects.text.Text = str;
-                                self.indicatorValue:SetKey(str);
-                            end
-                        end
-    
                         --- Create Objects ---
                         do
                             local objs = bind.objects;
@@ -2476,6 +2467,13 @@ function library:init()
                         ----------------------
     
                         local c
+                        function bind:SetText(str) -- ХУЙ <== ctrl+f pro
+                            if typeof(str) == 'string' then
+                                self.text = str;
+                                self.objects.text.Text = str;
+                                self.indicatorValue:SetKey(str);
+                            end
+                        end
                         function bind:SetBind(keybind)
                             if c then
                                 c:Disconnect();
@@ -2579,6 +2577,7 @@ function library:init()
     
                         tooltip(bind);
                         bind:SetBind(bind.bind);
+                        bind:SetText(bind.text);
                         self:UpdateOptions();
                         return bind
                     end
