@@ -2428,6 +2428,14 @@ function library:init()
                             bind.indicatorValue:SetKey((bind.text == nil or bind.text == '') and (bind.flag == nil and 'unknown' or bind.flag) or bind.text); -- this is so dumb
                             bind.indicatorValue:SetValue('[Always]');
                         end
+                        
+                        function bind:SetText(str) -- ХУЙ <== ctrl+f pro
+                            if typeof(str) == 'string' then
+                                self.text = str;
+                                self.objects.text.Text = str;
+                                self.indicatorValue:SetKey(str);
+                            end
+                        end
     
                         --- Create Objects ---
                         do
