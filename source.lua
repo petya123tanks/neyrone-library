@@ -2470,7 +2470,6 @@ function library:init()
                         function bind:SetText(str) -- ХУЙ <== ctrl+f pro
                             if typeof(str) == 'string' then
                                 self.text = str;
-                                self.objects.text.Text = str;
                                 self.indicatorValue:SetKey(str);
                             end
                         end
