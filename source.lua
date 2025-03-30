@@ -645,6 +645,14 @@ function library:init()
                             option:ClearValues()
                             option.values = value == nil and '' or value
                         end
+                        if type(option.osu) == "table" then
+                            option:Select("...");
+                            for i, v in pairs(option.values) do
+                                if table.find(osu, v) then
+                                    option:RemoveValue(v)
+                                end
+                            end
+                        end
                         if option.refresh == true then
                             option:Select("...");
                         end
