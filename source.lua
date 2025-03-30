@@ -641,7 +641,11 @@ function library:init()
                     elseif option.class == 'list' then
                         option:Select(value == nil and '' or value);
                         if option.yaica == true then
+                            option:Select("...");
                             option.values = value == nil and '' or value
+                        end
+                        if option.refresh == true then
+                            option:Select("...");
                         end
                     elseif option.class == 'box' then
                         option:SetInput(value == nil and '' or value)
@@ -2771,6 +2775,7 @@ function library:init()
                         local list = {
                             class = 'list';
                             yaica = false;
+                            refresh = false;
                             flag = data.flag;
                             text = '';
                             selected = '';
@@ -4167,6 +4172,7 @@ function library:init()
                     local list = {
                         class = 'list';
                         yaica = false;
+                        refresh = false;
                         flag = data.flag;
                         text = '';
                         selected = '';
