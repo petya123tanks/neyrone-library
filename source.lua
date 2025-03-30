@@ -646,14 +646,9 @@ function library:init()
                             option.values = value == nil and '' or value
                         end
                         if option.osuenable == true and type(option.osu) == "table" then
-                            print("da") -- debug
+                            option.osu.values = option.osu.values
                             option:Select("...");
-                            for i, v in pairs(option.osu.values) do
-                                print(v)
-                            end
                             for i, v in pairs(option.values) do
-                                print("принчу сука..")
-                                print(v)
                                 if table.find(option.osu.values, v) then
                                     option:RemoveValue(v)
                                 else
