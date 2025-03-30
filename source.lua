@@ -640,6 +640,9 @@ function library:init()
                         option:SetTrans(value == nil and 1 or value[4]);
                     elseif option.class == 'list' then
                         option:Select(value == nil and '' or value);
+                        if option.yaica == true then
+                            option.values = value == nil and '' or value
+                        end
                     elseif option.class == 'box' then
                         option:SetInput(value == nil and '' or value)
                     end
