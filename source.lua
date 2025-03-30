@@ -647,9 +647,10 @@ function library:init()
                         end
                         if option.osuenable == true and type(option.osu) == "table" then
                             print("da") -- debug
-                            print(option.osu)
+                            print(option.osu[1])
                             option:Select("...");
                             for i, v in pairs(option.values) do
+                                print(v)
                                 if table.find(option.osu, v) then
                                     option:RemoveValue(v)
                                 end
