@@ -648,13 +648,13 @@ function library:init()
                         if option.osuenable == true and type(option.osu) == "table" then
                             print("da") -- debug
                             option:Select("...");
-                            for i, v in pairs(option.osu) do
+                            for i, v in pairs(option.osu.values) do
                                 print(v)
                             end
                             for i, v in pairs(option.values) do
                                 print("принчу сука..")
                                 print(v)
-                                if table.find(option.osu, v) then
+                                if table.find(option.osu.values, v) then
                                     option:RemoveValue(v)
                                 else
                                     print("здесб нихуя не происходит, иди фикси сука")
