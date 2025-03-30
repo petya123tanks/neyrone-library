@@ -642,6 +642,7 @@ function library:init()
                         option:Select(value == nil and '' or value);
                         if option.yaica == true then
                             option:Select("...");
+                            option:ClearValues()
                             option.values = value == nil and '' or value
                         end
                         if option.refresh == true then
