@@ -679,6 +679,9 @@ function library:init()
                     }
                 elseif option.class == 'list' then
                     cfg[flag] = option.selected;
+                    if option.yaica == true then
+                        cfg[flag] = option.values;
+                    end
                 elseif option.class == 'box' then
                     cfg[flag] = option.input
                 end
@@ -2764,6 +2767,7 @@ function library:init()
                     function toggle:AddList(data)
                         local list = {
                             class = 'list';
+                            yaica = false;
                             flag = data.flag;
                             text = '';
                             selected = '';
@@ -4159,6 +4163,7 @@ function library:init()
                 function section:AddList(data)
                     local list = {
                         class = 'list';
+                        yaica = false;
                         flag = data.flag;
                         text = '';
                         selected = '';
