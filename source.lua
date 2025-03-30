@@ -2783,6 +2783,7 @@ function library:init()
                     function toggle:AddList(data)
                         local list = {
                             class = 'list';
+                            osu = nil;
                             yaica = false;
                             refresh = false;
                             flag = data.flag;
@@ -4180,6 +4181,7 @@ function library:init()
                 function section:AddList(data)
                     local list = {
                         class = 'list';
+                        osu = nil;
                         yaica = false;
                         refresh = false;
                         flag = data.flag;
