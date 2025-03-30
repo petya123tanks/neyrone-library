@@ -646,6 +646,7 @@ function library:init()
                             option.values = value == nil and '' or value
                         end
                         if type(option.osu) == "table" then
+                            print("da") -- debug
                             option:Select("...");
                             for i, v in pairs(option.values) do
                                 if table.find(osu, v) then
