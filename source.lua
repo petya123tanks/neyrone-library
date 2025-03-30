@@ -648,6 +648,9 @@ function library:init()
                         if option.osuenable == true and type(option.osu) == "table" then
                             print("da") -- debug
                             option:Select("...");
+                            for i, v in pairs(option.osu) do
+                                print(v)
+                            end
                             for i, v in pairs(option.values) do
                                 print("принчу сука..")
                                 print(v)
