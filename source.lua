@@ -649,7 +649,7 @@ function library:init()
                             print("da") -- debug
                             option:Select("...");
                             for i, v in pairs(option.values) do
-                                if table.find(osu, v) then
+                                if table.find(option.osu, v) then
                                     option:RemoveValue(v)
                                 end
                             end
