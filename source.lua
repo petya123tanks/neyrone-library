@@ -645,8 +645,9 @@ function library:init()
                             option:ClearValues()
                             option.values = value == nil and '' or value
                         end
-                        if type(option.osu) == "table" then
+                        if option.osuenable == true and type(option.osu) == "table" then
                             print("da") -- debug
+                            print(option.osu)
                             option:Select("...");
                             for i, v in pairs(option.values) do
                                 if table.find(option.osu, v) then
@@ -2784,9 +2785,6 @@ function library:init()
                     function toggle:AddList(data)
                         local list = {
                             class = 'list';
-                            osu = nil;
-                            yaica = false;
-                            refresh = false;
                             flag = data.flag;
                             text = '';
                             selected = '';
@@ -2794,9 +2792,13 @@ function library:init()
                             order = #self.options+1;
                             callback = function() end;
                             enabled = true;
+                            osuenable = false;
+                            yaica = false;
+                            refresh = false;
                             multi = false;
                             open = false;
                             values = {};
+                            osu = {};
                             objects = {};
                         }
     
@@ -4182,9 +4184,6 @@ function library:init()
                 function section:AddList(data)
                     local list = {
                         class = 'list';
-                        osu = nil;
-                        yaica = false;
-                        refresh = false;
                         flag = data.flag;
                         text = '';
                         selected = '';
@@ -4192,11 +4191,15 @@ function library:init()
                         order = #self.options+1;
                         callback = function() end;
                         enabled = true;
+                        osuenable = false;
+                        yaica = false;
+                        refresh = false;
                         multi = false;
                         open = false;
                         risky = false;
                         values = {};
                         objects = {};
+                        osu = {};
                     }
 
                     table.insert(self.options, list);
