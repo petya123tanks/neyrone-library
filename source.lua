@@ -17,7 +17,9 @@ end
 -- // Variables
 local players, http, runservice, inputservice, tweenService, stats, actionservice = gs('Players'), gs('HttpService'), gs('RunService'), gs('UserInputService'), gs('TweenService'), gs('Stats'), gs('ContextActionService')
 local localplayer = players.LocalPlayer
-local setByConfig = false
+local statuss = {
+    setByConfig = false
+}
 local floor, ceil, huge, pi, clamp = math.floor, math.ceil, math.huge, math.pi, math.clamp
 local c3new, fromrgb, fromhsv = Color3.new, Color3.fromRGB, Color3.fromHSV
 local next, newInstance, newUDim2, newVector2 = next, Instance.new, UDim2.new, Vector2.new
@@ -620,7 +622,7 @@ function library:init()
         end
 
         local s,e = pcall(function()
-            setByConfig = true
+            statuss.setByConfig = true
             for flag,value in next, http:JSONDecode(cfg) do
                 local option = library.options[flag]
                 if option ~= nil then
@@ -648,7 +650,7 @@ function library:init()
                     end
                 end
             end
-            setByConfig = false
+            statuss.setByConfig = false
         end)
 
         if s then
@@ -4823,7 +4825,7 @@ themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStr
         themeSection:AddColor({text = i, flag = i, color = library.theme[i], callback = function(c3)
             library.theme[i] = c3
             library:SetTheme(library.theme)
-            if not setByPreset and not setByConfig then 
+            if not setByPreset and not statuss.setByConfig then
                 library.options.preset_theme:Select('Custom')
             end
         end});
