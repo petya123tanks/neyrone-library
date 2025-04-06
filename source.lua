@@ -29,7 +29,13 @@ local executor = (
 )
 
 local function degenerat()
-    return setByConfig
+    local debil = false
+    if setByConfig == false
+    debil = false
+    elseif setByConfig == true
+    debil = true
+    end
+    return debil
 end
 
 local library = {
