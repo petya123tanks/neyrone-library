@@ -455,7 +455,6 @@ do
         }
 
         function drawing:Update()
-            -- if drawing.Parent then
                 local parent = drawing.Parent ~= nil and library.drawings[drawing.Parent.Object] or nil
                 local parentSize,parentPos,parentVis = workspace.CurrentCamera.ViewportSize, Vector2.new(0,0), true;
                 if parent ~= nil then
@@ -471,10 +470,7 @@ do
                 if drawing.Class == 'Square' or drawing.Class == 'Image' or drawing.Class == 'Circle' or drawing.Class == 'Text' then
                     drawing.Object.Position = parentPos + (typeof(drawing.Position) == 'Vector2' and drawing.Position or utility:UDim2ToVector2(drawing.Position,parentSize))
                 end
-
                 drawing.Object.Visible = (parentVis and drawing.Visible) and true or false
-
-            -- end
             drawing:UpdateChildren()
         end
 
@@ -498,7 +494,6 @@ do
 
         library.drawings[drawing.Object] = drawing
 
-        -- this is really stupid lol
         local proxy = utility:DetectTableChange(
         function(obj,i)
             return drawing[i] == nil and drawing.Object[i] or drawing[i]
@@ -646,10 +641,9 @@ function library:init()
                             option.values = value == nil and '' or value
                         end
                         if option.osuenable == true and type(option.osu) == "table" then
-                            option.osu.values = option.osu.values
                             option:Select("...");
-                            for i, v in pairs(option.values) do
-                                if table.find(option.osu.values, v) then
+                            for i, v in pairs(option.osu.values) do
+                                if table.find(option.values, v) then
                                     option:RemoveValue(v)
                                 else
                                     print("здесб нихуя не происходит, иди фикси сука")
