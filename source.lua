@@ -28,10 +28,6 @@ local executor = (
     'unknown'
 )
 
-local function degenerat()
-    return setByConfig
-end
-
 local library = {
     windows = {};
     indicators = {};
