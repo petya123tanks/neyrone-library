@@ -642,7 +642,7 @@ function library:init()
                         end
                         if type(option.checkconfig) == "boolean" then
                             print"yes"
-                            checkconfig = true
+                            option.checkconfig = true
                         end
                         if option.refresh then
                             option:Select("...");
