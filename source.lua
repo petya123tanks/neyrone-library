@@ -640,16 +640,6 @@ function library:init()
                             option:ClearValues()
                             option.values = value == nil and '' or value
                         end
-                        if option.osuenable == true and type(option.osu) == "table" then
-                            option:Select("...");
-                            for i, v in pairs(option.osu.values) do
-                                if table.find(option.values, v) then
-                                    option:RemoveValue(v)
-                                else
-                                    print("здесб нихуя не происходит, иди фикси сука")
-                                end
-                            end
-                        end
                         if option.refresh == true then
                             option:Select("...");
                         end
@@ -2787,13 +2777,11 @@ function library:init()
                             order = #self.options+1;
                             callback = function() end;
                             enabled = true;
-                            osuenable = false;
                             yaica = false;
                             refresh = false;
                             multi = false;
                             open = false;
                             values = {};
-                            osu = {};
                             objects = {};
                         }
     
@@ -4186,7 +4174,6 @@ function library:init()
                         order = #self.options+1;
                         callback = function() end;
                         enabled = true;
-                        osuenable = false;
                         yaica = false;
                         refresh = false;
                         multi = false;
@@ -4194,7 +4181,6 @@ function library:init()
                         risky = false;
                         values = {};
                         objects = {};
-                        osu = {};
                     }
 
                     table.insert(self.options, list);
