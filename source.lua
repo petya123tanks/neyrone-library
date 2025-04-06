@@ -651,7 +651,7 @@ function library:init()
                     end
                 end
             end
-            for flag,value in next, http:JSONDecode(cfg) do
+            --[[for flag,value in next, http:JSONDecode(cfg) do
             local option = library.options[flag]
                 if option ~= nil then
                     if option.class == 'list' then
@@ -660,7 +660,7 @@ function library:init()
                         end
                     end
                 end
-            end
+            end--]]
             setByConfig = false
         end)
 
