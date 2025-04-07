@@ -641,7 +641,7 @@ function library:init()
                             option.values = value == nil and '' or value
                         end
                         if type(option.checkconfig) == "boolean" then
-                            print"yes"
+                            --print"yes"
                             option.checkconfig = true
                         end
                         if option.refresh then
