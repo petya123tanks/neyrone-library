@@ -847,31 +847,31 @@ function library:init()
     end)
     
     function self:SetOpen(bool)
-        if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica) then
-            self.open = bool;
-            screenGui.Enabled = bool;
+        self.open = bool;
+        screenGui.Enabled = bool;
 
-            if bool and library.flags.disablemenumovement then
-                actionservice:BindAction(
-                    'FreezeMovement',
-                    function()
-                    return Enum.ContextActionResult.Sink
-                    end,
-                    false,
-                    unpack(Enum.PlayerActions:GetEnumItems())
-                )
-            else
-                actionservice:UnbindAction('FreezeMovement');
-            end
+        if bool and library.flags.disablemenumovement then
+            actionservice:BindAction(
+                'FreezeMovement',
+                function()
+                return Enum.ContextActionResult.Sink
+                end,
+                false,
+                unpack(Enum.PlayerActions:GetEnumItems())
+            )
+        else
+            actionservice:UnbindAction('FreezeMovement');
+        end
 
-            updateCursor();
-            for _,window in next, self.windows do
+        updateCursor();
+        for _,window in next, self.windows do
+            if typeof(window.openyaica) == 'boolean' and window.openyaica then
             window:SetOpen(bool);
             end
-
-            library.CurrentTooltip = nil;
-            tooltipObjects.background.Visible = false
         end
+
+        library.CurrentTooltip = nil;
+        tooltipObjects.background.Visible = false
     end
 
     function self.UpdateThemeColors()
