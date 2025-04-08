@@ -847,29 +847,31 @@ function library:init()
     end)
     
     function self:SetOpen(bool)
-        self.open = bool;
-        screenGui.Enabled = bool;
+        if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica) then
+            self.open = bool;
+            screenGui.Enabled = bool;
 
-        if bool and library.flags.disablemenumovement then
-            actionservice:BindAction(
-                'FreezeMovement',
-                function()
+            if bool and library.flags.disablemenumovement then
+                actionservice:BindAction(
+                    'FreezeMovement',
+                    function()
                     return Enum.ContextActionResult.Sink
-                end,
-                false,
-                unpack(Enum.PlayerActions:GetEnumItems())
-            )
-        else
-            actionservice:UnbindAction('FreezeMovement');
-        end
+                    end,
+                    false,
+                    unpack(Enum.PlayerActions:GetEnumItems())
+                )
+            else
+                actionservice:UnbindAction('FreezeMovement');
+            end
 
-        updateCursor();
-        for _,window in next, self.windows do
+            updateCursor();
+            for _,window in next, self.windows do
             window:SetOpen(bool);
-        end
+            end
 
-        library.CurrentTooltip = nil;
-        tooltipObjects.background.Visible = false
+            library.CurrentTooltip = nil;
+            tooltipObjects.background.Visible = false
+        end
     end
 
     function self.UpdateThemeColors()
@@ -1235,8 +1237,6 @@ function library:init()
         };
 
         table.insert(library.windows, window);
-
-        print(window.openyaica)
 
         ----- Create Objects ----
         do
@@ -1931,10 +1931,12 @@ function library:init()
                     if v.Object.Transparency ~= 0 then
                         task.spawn(function()
                             if bool then
-                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                v.Object.Transparency = visValues[v] or 1
+                                --utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
                             else
                                 visValues[v] = v.Object.Transparency;
-                                utility:Tween(v.Object, 'Transparency', .05, .1);
+                                v.Object.Transparency = .05
+                                --utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
                     end
