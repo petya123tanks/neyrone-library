@@ -1218,6 +1218,7 @@ function library:init()
         local window = {
             title = data.title or '',
             selectedTab = nil;
+            openyaica = data.openyaica or true;
             tabs = {},
             objects = {},
             colorpicker = {
@@ -1910,7 +1911,7 @@ function library:init()
         local visValues = {};
 
         function window:SetOpen(bool)
-            if typeof(bool) == 'boolean' then
+            if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica) then
                 self.open = bool;
 
                 local objs = self.objects.background:GetDescendants()
