@@ -1913,7 +1913,7 @@ function library:init()
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' then
 
-                if window.openyaica ~= false then
+                --if window.openyaica ~= false then
 
                     self.open = bool;
 
@@ -1926,7 +1926,7 @@ function library:init()
                         self.objects.background.Visible = bool;
                     end)
 
-                else
+                --[[else потом, позже
 
                     self.open = window.openyaica;
 
@@ -1939,14 +1939,14 @@ function library:init()
                         self.objects.background.Visible = window.openyaica;
                     end)
 
-                end
+                end--]]
 
                 for _,v in next, objs do
                     if v.Object.Transparency ~= 0 then
                         task.spawn(function()
                             if window.openyaica == false then
                                 utility:Tween(v.Object, 'Transparency', 1, .1)
-                                print("debil")
+                                --print("debil")
                             else
                                 if bool then
                                     --v.Object.Transparency = 1
