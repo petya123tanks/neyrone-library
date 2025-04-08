@@ -1236,6 +1236,8 @@ function library:init()
 
         table.insert(library.windows, window);
 
+        print(window.openyaica)
+
         ----- Create Objects ----
         do
             local size = data.size or newUDim2(0, 525, 0, 650);
@@ -1913,6 +1915,7 @@ function library:init()
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica) then
                 self.open = bool;
+                print(window.openyaica);
 
                 local objs = self.objects.background:GetDescendants()
                 table.insert(objs, self.objects.background)
