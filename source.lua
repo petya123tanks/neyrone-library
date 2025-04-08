@@ -865,9 +865,9 @@ function library:init()
 
         updateCursor();
         for _,window in next, self.windows do
-            if window.openyaica then
+            --if window.openyaica then
             window:SetOpen(bool);
-            end
+            --end
         end
 
         library.CurrentTooltip = nil;
