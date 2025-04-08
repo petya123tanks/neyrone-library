@@ -1914,7 +1914,7 @@ function library:init()
             if typeof(bool) == 'boolean' then
 
                 if window.openyaica ~= false then
-                
+
                     self.open = bool;
 
                     local objs = self.objects.background:GetDescendants()
@@ -1924,6 +1924,19 @@ function library:init()
                             task.wait(.1);
                         end
                         self.objects.background.Visible = bool;
+                    end)
+
+                else
+
+                    self.open = window.openyaica;
+
+                    local objs = self.objects.background:GetDescendants()
+                    table.insert(objs, self.objects.background)
+                    task.spawn(function()
+                        if not window.openyaica then
+                            task.wait(.1);
+                        end
+                        self.objects.background.Visible = window.openyaica;
                     end)
 
                 end
