@@ -1912,35 +1912,33 @@ function library:init()
 
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' then
-                if typeof(window.openyaica) == 'boolean' and window.openyaica ~= bool then
-                    self.open = bool;
-                    --print(window.openyaica);
+                if window.openyaica == false then return end
+                self.open = bool;
 
-                    local objs = self.objects.background:GetDescendants()
-                    table.insert(objs, self.objects.background)
+                local objs = self.objects.background:GetDescendants()
+                table.insert(objs, self.objects.background)
+                task.spawn(function()
+                    if not bool then
+                        task.wait(.1);
+                    end
+                    self.objects.background.Visible = bool;
+                end)
 
-                    task.spawn(function()
-                        if not bool then
-                            task.wait(.1);
-                        end
-                        self.objects.background.Visible = bool;
-                    end)
-
-                    for _,v in next, objs do
-                        if v.Object.Transparency ~= 0 then
-                            task.spawn(function()
-                                if bool then
-                                    --v.Object.Transparency = 1
-                                    utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                                else
-                                    visValues[v] = v.Object.Transparency;
-                                    --v.Object.Transparency = 0
-                                    utility:Tween(v.Object, 'Transparency', .05, .1);
-                                end
-                            end)
-                        end
+                for _,v in next, objs do
+                    if v.Object.Transparency ~= 0 then
+                        task.spawn(function()
+                            if bool then
+                                --v.Object.Transparency = 1
+                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                            else
+                                visValues[v] = v.Object.Transparency;
+                                --v.Object.Transparency = 0
+                                utility:Tween(v.Object, 'Transparency', .05, .1);
+                            end
+                        end)
                     end
                 end
+
             end
         end
 
@@ -4815,8 +4813,6 @@ function library:CreateSettingsTab(menu)
     mainSection:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 30, callback = function()
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
     end});
-
-
 
     local themeStrings = {"Custom"};
     for _,v in next, library.themes do
