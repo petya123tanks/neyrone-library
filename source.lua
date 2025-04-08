@@ -1933,7 +1933,7 @@ function library:init()
                             else
                                 visValues[v] = v.Object.Transparency;
                                 --v.Object.Transparency = 0
-                                utility:Tween(v.Object, 'Transparency', 0, .1);
+                                utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
                     end
