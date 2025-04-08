@@ -1912,7 +1912,6 @@ function library:init()
 
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' then
-                if window.openyaica == false then return end
                 self.open = bool;
 
                 local objs = self.objects.background:GetDescendants()
@@ -1927,13 +1926,18 @@ function library:init()
                 for _,v in next, objs do
                     if v.Object.Transparency ~= 0 then
                         task.spawn(function()
-                            if bool then
-                                --v.Object.Transparency = 1
-                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                            else
+                            if window.openyaica == false then
                                 visValues[v] = v.Object.Transparency;
-                                --v.Object.Transparency = 0
                                 utility:Tween(v.Object, 'Transparency', .05, .1);
+                            else
+                                if bool then
+                                    --v.Object.Transparency = 1
+                                    utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                else
+                                    visValues[v] = v.Object.Transparency;
+                                    --v.Object.Transparency = 0
+                                    utility:Tween(v.Object, 'Transparency', .05, .1);
+                                end
                             end
                         end)
                     end
