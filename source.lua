@@ -1912,16 +1912,21 @@ function library:init()
 
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' then
-                self.open = bool;
 
-                local objs = self.objects.background:GetDescendants()
-                table.insert(objs, self.objects.background)
-                task.spawn(function()
-                    if not bool then
-                        task.wait(.1);
-                    end
-                    self.objects.background.Visible = bool;
-                end)
+                if window.openyaica ~= false then
+                
+                    self.open = bool;
+
+                    local objs = self.objects.background:GetDescendants()
+                    table.insert(objs, self.objects.background)
+                    task.spawn(function()
+                        if not bool then
+                            task.wait(.1);
+                        end
+                        self.objects.background.Visible = bool;
+                    end)
+
+                end
 
                 for _,v in next, objs do
                     if v.Object.Transparency ~= 0 then
