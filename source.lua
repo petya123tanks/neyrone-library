@@ -1913,7 +1913,7 @@ function library:init()
         local visValues = {};
 
         function window:SetOpen(bool)
-            if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica == bool) then
+            if typeof(bool) == 'boolean' then--and (typeof(window.openyaica) == 'boolean' and window.openyaica == bool) then
                 self.open = bool;
                 --print(window.openyaica);
 
