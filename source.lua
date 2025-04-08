@@ -1935,7 +1935,7 @@ function library:init()
                                 --utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
                             else
                                 visValues[v] = v.Object.Transparency;
-                                v.Object.Transparency = .05
+                                v.Object.Transparency = 0
                                 --utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
@@ -4815,8 +4815,6 @@ function library:CreateSettingsTab(menu)
     mainSection:AddSlider({text = 'Position Y', flag = 'keybind_indicator_y', min = 0, max = 100, increment = .1, value = 30, callback = function()
         library.keyIndicator:SetPosition(newUDim2(library.flags.keybind_indicator_x / 100, 0, library.flags.keybind_indicator_y / 100, 0));    
     end});
-
-
 
     local themeStrings = {"Custom"};
     for _,v in next, library.themes do
