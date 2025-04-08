@@ -4544,7 +4544,7 @@ function library:init()
             end
         end
 
-        --window:SetOpen(window.openyaica);
+        window:SetOpen(true);
         return window;
     end
 
