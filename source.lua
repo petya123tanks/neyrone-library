@@ -1931,11 +1931,11 @@ function library:init()
                     if v.Object.Transparency ~= 0 then
                         task.spawn(function()
                             if bool then
-                                v.Object.Transparency = 1
-                                --utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                --v.Object.Transparency = 1
+                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
                             else
-                                --visValues[v] = v.Object.Transparency;
-                                v.Object.Transparency = 0
+                                visValues[v] = v.Object.Transparency;
+                                --v.Object.Transparency = 0
                                 --utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
