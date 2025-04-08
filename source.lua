@@ -1934,8 +1934,8 @@ function library:init()
                                 v.Object.Transparency = visValues[v] or 1
                                 --utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
                             else
-                                visValues[v] = v.Object.Transparency;
-                                v.Object.Transparency = 0
+                                --visValues[v] = v.Object.Transparency;
+                                v.Object.Transparency = visValues[v] or 1
                                 --utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
