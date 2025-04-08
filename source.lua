@@ -1927,13 +1927,13 @@ function library:init()
                 for _,v in next, objs do
                     if v.Object.Transparency ~= 0 then
                         task.spawn(function()
-                            if bool and window.openyaica ~= false then
+                            if bool then
                                 --v.Object.Transparency = 1
                                 utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                            elseif not bool then
+                            else
                                 visValues[v] = v.Object.Transparency;
                                 --v.Object.Transparency = 0
-                                utility:Tween(v.Object, 'Transparency', .05, .1);
+                                utility:Tween(v.Object, 'Transparency', 0, .1);
                             end
                         end)
                     end
@@ -4544,7 +4544,7 @@ function library:init()
             end
         end
 
-        window:SetOpen(window.openyaica);
+        --window:SetOpen(window.openyaica);
         return window;
     end
 
