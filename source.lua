@@ -865,9 +865,7 @@ function library:init()
 
         updateCursor();
         for _,window in next, self.windows do
-            --if window.openyaica then
             window:SetOpen(bool);
-            --end
         end
 
         library.CurrentTooltip = nil;
@@ -1913,32 +1911,34 @@ function library:init()
         local visValues = {};
 
         function window:SetOpen(bool)
-            if typeof(bool) == 'boolean' then--and (typeof(window.openyaica) == 'boolean' and window.openyaica == bool) then
-                self.open = bool;
-                --print(window.openyaica);
+            if typeof(bool) == 'boolean' then
+                if typeof(window.openyaica) == 'boolean' and window.openyaica ~= bool then
+                    self.open = bool;
+                    --print(window.openyaica);
 
-                local objs = self.objects.background:GetDescendants()
-                table.insert(objs, self.objects.background)
+                    local objs = self.objects.background:GetDescendants()
+                    table.insert(objs, self.objects.background)
 
-                task.spawn(function()
-                    if not bool then
-                        task.wait(.1);
-                    end
-                    self.objects.background.Visible = bool;
-                end)
+                    task.spawn(function()
+                        if not bool then
+                            task.wait(.1);
+                        end
+                        self.objects.background.Visible = bool;
+                    end)
 
-                for _,v in next, objs do
-                    if v.Object.Transparency ~= 0 then
-                        task.spawn(function()
-                            if bool then
-                                --v.Object.Transparency = 1
-                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                            else
-                                visValues[v] = v.Object.Transparency;
-                                --v.Object.Transparency = 0
-                                utility:Tween(v.Object, 'Transparency', .05, .1);
-                            end
-                        end)
+                    for _,v in next, objs do
+                        if v.Object.Transparency ~= 0 then
+                            task.spawn(function()
+                                if bool then
+                                    --v.Object.Transparency = 1
+                                    utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                else
+                                    visValues[v] = v.Object.Transparency;
+                                    --v.Object.Transparency = 0
+                                    utility:Tween(v.Object, 'Transparency', .05, .1);
+                                end
+                            end)
+                        end
                     end
                 end
             end
