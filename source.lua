@@ -865,7 +865,7 @@ function library:init()
 
         updateCursor();
         for _,window in next, self.windows do
-            if typeof(window.openyaica) == 'boolean' and window.openyaica then
+            if window.openyaica then
             window:SetOpen(bool);
             end
         end
