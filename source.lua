@@ -1913,9 +1913,9 @@ function library:init()
         local visValues = {};
 
         function window:SetOpen(bool)
-            if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica) then
+            if typeof(bool) == 'boolean' and (typeof(window.openyaica) == 'boolean' and window.openyaica == bool) then
                 self.open = bool;
-                print(window.openyaica);
+                --print(window.openyaica);
 
                 local objs = self.objects.background:GetDescendants()
                 table.insert(objs, self.objects.background)
@@ -1936,7 +1936,7 @@ function library:init()
                             else
                                 visValues[v] = v.Object.Transparency;
                                 --v.Object.Transparency = 0
-                                --utility:Tween(v.Object, 'Transparency', .05, .1);
+                                utility:Tween(v.Object, 'Transparency', .05, .1);
                             end
                         end)
                     end
