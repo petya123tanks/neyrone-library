@@ -2015,11 +2015,10 @@ function library:init()
             end
             ----------------------
 
-            function tab:AddSection(text, side, huy, order)
+            function tab:AddSection(text, side, order)
                 local section = {
                     text = tostring(text);
                     side = side == nil and 1 or clamp(side,1,2);
-                    huy = huy or false
                     order = order or #self.sections+1;
                     enabled = true;
                     objects = {};
@@ -2040,7 +2039,7 @@ function library:init()
                     })
 
                     objs.innerBorder = utility:Draw('Square', {
-                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1,2,1,1);
+                        Size = newUDim2(1,2,1,1);
                         Position = newUDim2(0,-1,0,0);
                         ThemeColor = 'Border 3';
                         ZIndex = z-1;
@@ -2048,7 +2047,7 @@ function library:init()
                     })
 
                     objs.outerBorder = utility:Draw('Square', {
-                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1,2,1,1);
+                        Size = newUDim2(1,2,1,1);
                         Position = newUDim2(0,-1,0,0);
                         ThemeColor = 'Border 1';
                         ZIndex = z-2;
@@ -2079,7 +2078,7 @@ function library:init()
                     })
 
                     objs.optionholder = utility:Draw('Square',{
-                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1-.03,0,1,-15);
+                        Size = newUDim2(1-.03,0,1,-15);
                         Position = newUDim2(.015,0,0,13);
                         Transparency = 0;
                         ZIndex = z+1;
@@ -3023,10 +3022,10 @@ function library:init()
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(0, 188, 0, 268)
+                            Size = newUDim2(0, 88, 0, 168)
                             Position = newUDim2(0, 10, 0, 15)
                             Data = library.images.humanoid;
-                            Transparency = .65;
+                            Transparency = 0;
                             ZIndex = z+4;
                             Parent = objs.holder;
                         })
