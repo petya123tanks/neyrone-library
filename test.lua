@@ -1484,7 +1484,7 @@ function library:init()
                 objs.hue = utility:Draw('Image', {
                     Size = newUDim2(0,175,0,10);
                     Position = newUDim2(0,5,0,205);
-                    Data = library.images.colorhue;
+                    Data = library.images.humanoid; --colorhue
                     ZIndex = z+2;
                     Parent = objs.background;
                 })
