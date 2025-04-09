@@ -3020,10 +3020,10 @@ function library:init()
                             Parent = section.objects.optionholder;
                         })
 
-                        objs.background = utility:Draw('Image', {
-                            Size = newUDim2(1,15,2,15);
+                        objs.gradient = utility:Draw('Image', {
+                            Size = newUDim2(1,15,1,15);
                             Data = library.images.humanoid;
-                            Transparency = 0;
+                            Transparency = .65;
                             ZIndex = z+4;
                             Parent = objs.holder;
                         })
