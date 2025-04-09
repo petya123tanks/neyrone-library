@@ -3014,17 +3014,17 @@ function library:init()
                         local z = library.zindexOrder.window+25;
 
                         objs.holder = utility:Draw('Square', {
-                            Size = newUDim2(1,0,0,37);
+                            Size = newUDim2(1,0,2,37);
                             Transparency = 0;
-                            ZIndex = z+4;
+                            ZIndex = z+5;
                             Parent = section.objects.optionholder;
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(1,15,3,15);
+                            Size = newUDim2(1,15,2,15);
                             Data = library.images.humanoid;
                             Transparency = 0;
-                            ZIndex = z+5;
+                            ZIndex = z+4;
                             Parent = objs.holder;
                         })
 
