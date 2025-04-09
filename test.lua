@@ -1345,7 +1345,7 @@ function library:init()
             })
 
             objs.columnholder1 = utility:Draw('Square', {
-                Size = window.full and newUDim2(1, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
+                Size = window.full and newUDim2(.96, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
                 Position = newUDim2(.01, 0, .02, 0);
                 Transparency = 0;
                 ZIndex = z+6;
@@ -1353,7 +1353,7 @@ function library:init()
             })
 
             objs.columnholder2 = utility:Draw('Square', {
-                Size = window.full and newUDim2(1, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
+                Size = window.full and newUDim2(.96, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
                 Position = newUDim2(1 - (.48 + .01), 0, .02, 0);
                 Transparency = 0;
                 ZIndex = z+6;
