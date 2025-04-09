@@ -2992,8 +2992,8 @@ function library:init()
                     local humespanoid = {
                         class = 'image';
                         flag = data.flag;
-                        udd = data.udd;
-                        udp = data.udp;
+                        udd = '';
+                        udp = '';
                         order = #self.options+1;
                         state = false;
                         enabled = true;
@@ -3024,8 +3024,8 @@ function library:init()
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = humespanoid.udd-- newUDim2(0,188,0,268);
-                            Position = humespanoid.udp --newUDim2(0,1,0,1);
+                            Size = newUDim2(humespanoid.udd);
+                            Position = newUDim2(humespanoid.udp);
                             Data = library.images.humanoid;
                             Transparency = .65;
                             ZIndex = z+4;
