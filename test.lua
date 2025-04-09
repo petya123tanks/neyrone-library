@@ -1914,7 +1914,9 @@ function library:init()
         function window:SetOpen(bool)
             if typeof(bool) == 'boolean' then
 
-                --if window.openyaica ~= false then
+                if window.openyaica == false then
+
+                    bool = false
 
                     self.open = bool;
 
@@ -1924,48 +1926,48 @@ function library:init()
                         if not bool then
                             task.wait(.1);
                         end
-                        if window.openyaica == false then
+                        --[[if window.openyaica == false and bool then
                             self.objects.background.Visible = false;
-                        else
+                        --else]]
                             self.objects.background.Visible = bool;
-                        end
+                        --end
                     end)
 
-                --[[else потом, позже
+                    --[[else потом, позже
 
-                    self.open = window.openyaica;
+                        self.open = window.openyaica;
 
-                    local objs = self.objects.background:GetDescendants()
-                    table.insert(objs, self.objects.background)
-                    task.spawn(function()
-                        if not window.openyaica then
-                            task.wait(.1);
-                        end
-                        self.objects.background.Visible = window.openyaica;
-                    end)
-
-                end--]]
-
-                for _,v in next, objs do
-                    if v.Object.Transparency ~= 0 then
+                        local objs = self.objects.background:GetDescendants()
+                        table.insert(objs, self.objects.background)
                         task.spawn(function()
-                            if window.openyaica == false then
-                                utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                                print("debil")
-                            else
-                                if bool then
-                                    --v.Object.Transparency = 1
-                                    utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
-                                else
-                                    visValues[v] = v.Object.Transparency;
-                                    --v.Object.Transparency = 0
-                                    utility:Tween(v.Object, 'Transparency', .05, .1);
-                                end
+                            if not window.openyaica then
+                                task.wait(.1);
                             end
+                            self.objects.background.Visible = window.openyaica;
                         end)
+
+                    end--]]
+
+                    for _,v in next, objs do
+                        if v.Object.Transparency ~= 0 then
+                            task.spawn(function()
+                                if window.openyaica == false then
+                                    utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                    print("debil")
+                                else
+                                    if bool then
+                                        --v.Object.Transparency = 1
+                                        utility:Tween(v.Object, 'Transparency', visValues[v] or 1, .1);
+                                    else
+                                        visValues[v] = v.Object.Transparency;
+                                        --v.Object.Transparency = 0
+                                        utility:Tween(v.Object, 'Transparency', .05, .1);
+                                    end
+                                end
+                            end)
+                        end
                     end
                 end
-
             end
         end
 
