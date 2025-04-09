@@ -61,6 +61,7 @@ local library = {
         ['humanoid'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/humanoid.png';
         ['throwable'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/drone.png';
         ['item'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/ak47vitya.png';
+        ['car'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/8cf92bbda8ce559ce35374a7be2de9c5.png';
     };
     numberStrings = {['Zero'] = 0, ['One'] = 1, ['Two'] = 2, ['Three'] = 3, ['Four'] = 4, ['Five'] = 5, ['Six'] = 6, ['Seven'] = 7, ['Eight'] = 8, ['Nine'] = 9};
     signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/drillygzzly/Other/main/1414'))();
@@ -1484,7 +1485,7 @@ function library:init()
                 objs.hue = utility:Draw('Image', {
                     Size = newUDim2(0,175,0,10);
                     Position = newUDim2(0,5,0,205);
-                    Data = library.images.humanoid; --colorhue
+                    Data = library.images.car; --colorhue
                     ZIndex = z+2;
                     Parent = objs.background;
                 })
