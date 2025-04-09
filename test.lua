@@ -3008,7 +3008,7 @@ function library:init()
                     table.insert(self.options, humanoid)
 
                     --- Create Objects ---
-                    do
+                    --[[do
 
                         local objs = humanoid.objects;
                         local z = library.zindexOrder.window+25;
@@ -3033,7 +3033,7 @@ function library:init()
                             humanoid:SetState(not humanoid.state);
                         end
 
-                    end
+                    end--]]
 
                 -- // Slider
                 function section:AddSlider(data)
