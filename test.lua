@@ -3015,13 +3015,13 @@ function library:init()
 
                         objs.holder = utility:Draw('Square', {
                             Size = newUDim2(1,0,0,37);
-                            Transparency = 0;
+                            Transparency = 1;
                             ZIndex = z+4;
                             Parent = section.objects.optionholder;
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(1,-4,0,15);
+                            Size = newUDim2(1,-4,3,15);
                             Data = library.images.humanoid;
                             Transparency = 0;
                             ZIndex = z+4;
@@ -3029,7 +3029,7 @@ function library:init()
                         })
 
                         objs.border1 = utility:Draw('Square', {
-                            Size = newUDim2(1,2,1,2);
+                            Size = newUDim2(1,2,3,2);
                             Position = newUDim2(0,-1,0,-1);
                             ThemeColor = 'Option Border 1';
                             ZIndex = z+1;
@@ -3037,7 +3037,7 @@ function library:init()
                         })
 
                         objs.border2 = utility:Draw('Square', {
-                            Size = newUDim2(1,2,1,2);
+                            Size = newUDim2(1,2,3,2);
                             Position = newUDim2(0,-1,0,-1);
                             ThemeColor = 'Option Border 2';
                             ZIndex = z;
