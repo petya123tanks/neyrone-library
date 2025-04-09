@@ -720,6 +720,9 @@ function library:init()
     for i,v in next, self.images do
         if not isfile(self.cheatname..'/assets/'..i..'.oh') then
             writefile(self.cheatname..'/assets/'..i..'.oh', game:HttpGet(v))
+        else
+            deletefile(self.cheatname..'/assets/'..i..'.oh')
+            writefile(self.cheatname..'/assets/'..i..'.oh', game:HttpGet(v))
         end
         self.images[i] = readfile(self.cheatname..'/assets/'..i..'.oh');
     end
@@ -3022,7 +3025,7 @@ function library:init()
                         })
 
                         objs.gradient = utility:Draw('Image', {
-                            Size = newUDim2(0,256,0,256);;
+                            Size = newUDim2(0,256,0,256);
                             Data = library.images.car;
                             Transparency = .65;
                             ZIndex = z+4;
