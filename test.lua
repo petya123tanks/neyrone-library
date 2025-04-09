@@ -3025,8 +3025,9 @@ function library:init()
                         })
 
                         objs.gradient = utility:Draw('Image', {
-                            Size = newUDim2(0,256,0,256);
-                            Data = library.images.car;
+                            Size = newUDim2(0,188,0,268);
+                            Position = newUDim2(0,1,0,1);
+                            Data = library.images.humanoid;
                             Transparency = .65;
                             ZIndex = z+4;
                             Parent = objs.holder;
