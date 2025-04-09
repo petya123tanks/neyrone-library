@@ -3021,16 +3021,17 @@ function library:init()
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(1,-4,1,15);
+                            Size = newUDim2(1,15,2,15);
                             Data = library.images.humanoid;
-                            Transparency = .5;
-                            ZIndex = z+4;
+                            Transparency = 0;
+                            ZIndex = z+5;
                             Parent = objs.holder;
                         })
 
                         objs.border1 = utility:Draw('Square', {
                             Size = newUDim2(1,2,1,2);
                             Position = newUDim2(0,-1,0,-1);
+                            Transparency = 1;
                             ThemeColor = 'Option Border 1';
                             ZIndex = z+1;
                             Parent = objs.background;
@@ -3039,6 +3040,7 @@ function library:init()
                         objs.border2 = utility:Draw('Square', {
                             Size = newUDim2(1,2,1,2);
                             Position = newUDim2(0,-1,0,-1);
+                            Transparency = 1;
                             ThemeColor = 'Option Border 2';
                             ZIndex = z;
                             Parent = objs.border1;
