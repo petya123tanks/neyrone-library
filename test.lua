@@ -3014,7 +3014,7 @@ function library:init()
                         local z = library.zindexOrder.window+25;
 
                         objs.holder = utility:Draw('Square', {
-                            Size = newUDim2(1,0,2,37);
+                            Size = newUDim2(1,0,0,37);
                             Transparency = 0;
                             ZIndex = z+5;
                             Parent = section.objects.optionholder;
