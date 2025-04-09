@@ -3023,12 +3023,12 @@ function library:init()
                         objs.background = utility:Draw('Image', {
                             Size = newUDim2(1,15,2,15);
                             Data = library.images.humanoid;
-                            Transparency = 0;
+                            Transparency = 1;
                             ZIndex = z+5;
                             Parent = objs.holder;
                         })
 
-                        objs.border1 = utility:Draw('Square', {
+                        --[[objs.border1 = utility:Draw('Square', {
                             Size = newUDim2(1,2,1,2);
                             Position = newUDim2(0,-1,0,-1);
                             Transparency = 1;
@@ -3044,7 +3044,7 @@ function library:init()
                             ThemeColor = 'Option Border 2';
                             ZIndex = z;
                             Parent = objs.border1;
-                        })
+                        })--]]
 
                         --[[ попозже заюзаю, пока не нужно.
                         utility:Connectionobjs.holder.MouseEnter, function()
