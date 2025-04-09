@@ -2986,7 +2986,7 @@ function library:init()
                     return toggle
                 end
 
-                function section:AddHumanoid(data)
+                --[[function section:AddHumanoid(data)
                     local humanoid = {
                         class = 'images';
                         tooltip = '';
@@ -3008,7 +3008,7 @@ function library:init()
 
                     --- Create Objects ---
                     do
-                    
+
                         local objs = humanoid.objects;
                         local z = library.zindexOrder.window+25;
                         
@@ -3032,7 +3032,7 @@ function library:init()
                             humanoid:SetState(not humanoid.state);
                         end
 
-                    end
+                    end--]]
 
                 -- // Slider
                 function section:AddSlider(data)
