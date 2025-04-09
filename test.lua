@@ -718,7 +718,6 @@ function library:init()
     end
 
     for i,v in next, self.images do
-        deletefile(self.cheatname..'/assets/'..i..'.oh')
         if not isfile(self.cheatname..'/assets/'..i..'.oh') then
             writefile(self.cheatname..'/assets/'..i..'.oh', game:HttpGet(v))
         end
