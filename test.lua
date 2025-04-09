@@ -2988,9 +2988,9 @@ function library:init()
                 end
 
                 function section:AddHumanoid(data)
-                    local humanoid = {
-                        class = 'images';
-                        tooltip = '';
+                    local humespanoid = {
+                        class = 'image';
+                        flag = data.flag;
                         order = #self.options+1;
                         state = false;
                         enabled = true;
@@ -3000,12 +3000,12 @@ function library:init()
 
                     local blacklist = {'objects'};
                     for i,v in next, data do
-                        if not table.find(blacklist, i) ~= humanoid[i] ~= nil then
-                            humanoid[i] = v
+                        if not table.find(blacklist, i) ~= humespanoid[i] ~= nil then
+                            humespanoid[i] = v
                         end
                     end
 
-                    table.insert(self.options, humanoid)
+                    table.insert(self.options, humespanoid)
 
                     --- Create Objects ---
                     --[[do
@@ -3034,7 +3034,8 @@ function library:init()
                         end
 
                     end--]]
-
+                    return humespanoid
+                end
                 -- // Slider
                 function section:AddSlider(data)
                     local slider = {
@@ -3385,7 +3386,7 @@ function library:init()
                             objs.background.ThemeColor = 'Accent';
                             objs.background.ThemeColorOffset = -95;
 
-                            task.spawn(function() -- this is ugly and i do not care :)
+                            task.spawn(function() -- this is ugly and i do not care :) чаю
                                 if button.confirm then
                                     if clicked then
                                         clicked = false
