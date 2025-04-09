@@ -1221,7 +1221,7 @@ function library:init()
         local window = {
             title = data.title or '',
             selectedTab = nil;
-            huy = data.huy or false;
+            full = data.full or false;
             openyaica = data.openyaica or true;
             tabs = {},
             objects = {},
@@ -1345,7 +1345,7 @@ function library:init()
             })
 
             objs.columnholder1 = utility:Draw('Square', {
-                Size = window.huy and newUDim2(.9, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
+                Size = window.full and newUDim2(1, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
                 Position = newUDim2(.01, 0, .02, 0);
                 Transparency = 0;
                 ZIndex = z+6;
@@ -1353,7 +1353,7 @@ function library:init()
             })
 
             objs.columnholder2 = utility:Draw('Square', {
-                Size = window.huy and newUDim2(.9, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
+                Size = window.full and newUDim2(1, 0, .96, 0) or newUDim2(.48, 0, .96, 0);
                 Position = newUDim2(1 - (.48 + .01), 0, .02, 0);
                 Transparency = 0;
                 ZIndex = z+6;
