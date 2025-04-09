@@ -3022,8 +3022,8 @@ function library:init()
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(0, 88, 0, 168);
-                            Position = newUDim2(0, 10, 0, 15);
+                            Size = newUDim2(0, 160, 0, 160);
+                            Position = newUDim2(0, 50, 0, -25);
                             Data = library.images.humanoid;
                             Transparency = .65;
                             ZIndex = z+4;
