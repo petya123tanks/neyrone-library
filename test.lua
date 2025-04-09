@@ -2015,7 +2015,7 @@ function library:init()
             end
             ----------------------
 
-            function tab:AddSection(text, side, huy, order,)
+            function tab:AddSection(text, side, huy, order)
                 local section = {
                     text = tostring(text);
                     side = side == nil and 1 or clamp(side,1,2);
