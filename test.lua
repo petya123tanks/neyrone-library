@@ -1907,6 +1907,7 @@ function library:init()
             end)
         end
 
+        print("debil")
 
         local visValues = {};
 
