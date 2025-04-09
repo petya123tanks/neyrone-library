@@ -2992,8 +2992,6 @@ function library:init()
                     local humespanoid = {
                         class = 'image';
                         flag = data.flag;
-                        udd = data.udd;
-                        udp = data.udp;
                         order = #self.options+1;
                         state = false;
                         enabled = true;
@@ -3017,15 +3015,15 @@ function library:init()
                         local z = library.zindexOrder.window+25;
 
                         objs.holder = utility:Draw('Square', {
-                            Size = newUDim2(1,0,0,37);
+                            Size = newUDim2(0,0,0,0);
                             Transparency = 0;
                             ZIndex = z+5;
                             Parent = section.objects.optionholder;
                         })
 
                         objs.background = utility:Draw('Image', {
-                            Size = newUDim2(0, 188, 0, 268) or newUDim2(humespanoid.udd);
-                            Position = newUDim2(0, 1, 0, 1) or newUDim2(humespanoid.udp);
+                            Size = newUDim2(0, 188, 0, 268)
+                            Position = newUDim2(0, 10, 0, 15)
                             Data = library.images.humanoid;
                             Transparency = .65;
                             ZIndex = z+4;
