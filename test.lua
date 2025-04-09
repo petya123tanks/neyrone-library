@@ -2015,10 +2015,11 @@ function library:init()
             end
             ----------------------
 
-            function tab:AddSection(text, side, order)
+            function tab:AddSection(text, side, huy, order,)
                 local section = {
                     text = tostring(text);
                     side = side == nil and 1 or clamp(side,1,2);
+                    huy = huy or false
                     order = order or #self.sections+1;
                     enabled = true;
                     objects = {};
@@ -2039,7 +2040,7 @@ function library:init()
                     })
 
                     objs.innerBorder = utility:Draw('Square', {
-                        Size = newUDim2(1,2,1,1);
+                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1,2,1,1);
                         Position = newUDim2(0,-1,0,0);
                         ThemeColor = 'Border 3';
                         ZIndex = z-1;
@@ -2047,7 +2048,7 @@ function library:init()
                     })
 
                     objs.outerBorder = utility:Draw('Square', {
-                        Size = newUDim2(1,2,1,1);
+                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1,2,1,1);
                         Position = newUDim2(0,-1,0,0);
                         ThemeColor = 'Border 1';
                         ZIndex = z-2;
@@ -2068,17 +2069,19 @@ function library:init()
                         Parent = objs.background;
                     })
 
-                    objs.textlabel = utility:Draw('Text', {
-                        Position = newUDim2(.0425,0,0,-7);
-                        ThemeColor = 'Primary Text';
-                        Size = 13;
-                        Font = 2;
-                        ZIndex = z+1;
-                        Parent = objs.background;
-                    })
+                    if not huy then
+                        objs.textlabel = utility:Draw('Text', {
+                            Position = newUDim2(.0425,0,0,-7);
+                            ThemeColor = 'Primary Text';
+                            Size = 13;
+                            Font = 2;
+                            ZIndex = z+1;
+                            Parent = objs.background;
+                        })
+                    end
 
                     objs.optionholder = utility:Draw('Square',{
-                        Size = newUDim2(1-.03,0,1,-15);
+                        Size = huy and newUDim2(0,0,0,0) or newUDim2(1-.03,0,1,-15);
                         Position = newUDim2(.015,0,0,13);
                         Transparency = 0;
                         ZIndex = z+1;
