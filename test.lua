@@ -58,9 +58,9 @@ local library = {
         ['gradientp45'] = 'https://raw.githubusercontent.com/portallol/luna/main/modules/gradient45.png';
         ['colorhue'] = 'https://raw.githubusercontent.com/portallol/luna/main/modules/lgbtqshit.png';
         ['colortrans'] = 'https://raw.githubusercontent.com/portallol/luna/main/modules/trans.png';
-        ['humanoid'] = 'https://i.imgur.com/T2271Dv.png';
-        ['throwable'] = 'https://i.imgur.com/zWXPqbC.png';
-        ['item'] = 'https://i.imgur.com/xCEiCsY.png';
+        ['humanoid'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/humanoid.png';
+        ['throwable'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/drone.png';
+        ['item'] = 'https://raw.githubusercontent.com/petya123tanks/neyrone-library/refs/heads/main/ak47vitya.png';
     };
     numberStrings = {['Zero'] = 0, ['One'] = 1, ['Two'] = 2, ['Three'] = 3, ['Four'] = 4, ['Five'] = 5, ['Six'] = 6, ['Seven'] = 7, ['Eight'] = 8, ['Nine'] = 9};
     signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/drillygzzly/Other/main/1414'))();
