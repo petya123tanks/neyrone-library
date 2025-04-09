@@ -2612,68 +2612,6 @@ function library:init()
                         return bind
                     end
 
-                    function section:AddHumanoid(data)
-                    local humanoid = {
-                        class = 'image1';
-                        tooltip = '';
-                        order = #self.options+1;
-                        state = false;
-                        enabled = true;
-                        options = {};
-                        objects = {};
-                    };
-
-                    local blacklist = {'objects'};
-                    for i,v in next, data do
-                        if not table.find(blacklist, i) ~= humanoid[i] ~= nil then
-                            humanoid[i] = v
-                        end
-                    end
-
-                    table.insert(self.options, humanoid)
-
-                    --- Create Objects ---
-                    do
-                        local objs = humanoid.objects;
-                        local z = library.zindexOrder.window+25;
-
-                        objs.holder = utility:Draw('Square', {
-                            Size = newUDim2(1,0,0,17);
-                            Transparency = 0;
-                            ZIndex = z+5;
-                            Parent = section.objects.optionholder;
-                        })
-
-                        objs.background = utility:Draw('Square', {
-                            Size = newUDim2(5,2,5,2);
-                            Position = newUDim2(0,-1,0,-1);
-                            ThemeColor = 'Option Background';
-                            ZIndex = z+3;
-                            Parent = objs.holder;
-                        })
-
-                        objs.gradient = utility:Draw('Image', {
-                            Size = newUDim2(5,2,5,2);
-                            Data = library.images.humanoid;
-                            Transparency = 0;
-                            ZIndex = z+4;
-                            Parent = objs.background;
-                        })
-
-                        utility:Connection(objs.holder.MouseEnter, function()
-                            objs.border1.ThemeColor = 'Accent';
-                        end)
-
-                        utility:Connection(objs.holder.MouseLeave, function()
-                            objs.border1.ThemeColor = toggle.state and 'Accent' or 'Option Border';
-                        end)
-
-                        utility:Connection(objs.holder.MouseButton1Down, function()
-                            toggle:SetState(not toggle.state);
-                        end)
-
-                    end
-
                     function toggle:AddSlider(data)
                         local slider = {
                             class = 'slider';
@@ -3047,6 +2985,54 @@ function library:init()
                     self:UpdateOptions();
                     return toggle
                 end
+
+                function section:AddHumanoid(data)
+                    local humanoid = {
+                        class = 'images';
+                        tooltip = '';
+                        order = #self.options+1;
+                        state = false;
+                        enabled = true;
+                        options = {};
+                        objects = {};
+                    };
+
+                    local blacklist = {'objects'};
+                    for i,v in next, data do
+                        if not table.find(blacklist, i) ~= humanoid[i] ~= nil then
+                            humanoid[i] = v
+                        end
+                    end
+
+                    table.insert(self.options, humanoid)
+
+                    --- Create Objects ---
+                    do
+                    
+                        local objs = humanoid.objects;
+                        local z = library.zindexOrder.window+25;
+                        
+                        objs.image = utility:Draw('Image', 
+                            Size = newUDim2(5,2,5,2);
+                            Data = library.images.humanoid;
+                            Transparency = 0;
+                            ZIndex = z+4;
+                            Parent = objs.background;
+                        )
+
+                        utility:Connectionobjs.holder.MouseEnter, function()
+                            objs.border1.ThemeColor = 'Accent';
+                        end
+
+                        utility:Connectionobjs.holder.MouseLeave, function()
+                            objs.border1.ThemeColor = humanoid.state and 'Accent' or 'Option Border';
+                        end
+
+                        utility:Connectionobjs.holder.MouseButton1Down, function()
+                            humanoid:SetState(not humanoid.state);
+                        end
+
+                    end
 
                 -- // Slider
                 function section:AddSlider(data)
