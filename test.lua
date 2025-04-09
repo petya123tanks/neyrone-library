@@ -2992,8 +2992,8 @@ function library:init()
                     local humespanoid = {
                         class = 'image';
                         flag = data.flag;
-                        udd = '';
-                        udp = '';
+                        udd = data.udd;
+                        udp = data.udp;
                         order = #self.options+1;
                         state = false;
                         enabled = true;
