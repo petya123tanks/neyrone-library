@@ -3008,19 +3008,43 @@ function library:init()
                     table.insert(self.options, humespanoid)
 
                     --- Create Objects ---
-                    --[[do
+                    do
 
-                        local objs = humanoid.objects;
+                        local objs = humespanoid.objects;
                         local z = library.zindexOrder.window+25;
-                        
-                        objs.image = utility:Draw('Image', 
-                            Size = newUDim2(5,2,5,2);
+
+                        objs.holder = utility:Draw('Square', {
+                            Size = newUDim2(1,0,0,37);
+                            Transparency = 0;
+                            ZIndex = z+4;
+                            Parent = section.objects.optionholder;
+                        })
+
+                        objs.background = utility:Draw('Image', {
+                            Size = newUDim2(1,-4,0,15);
                             Data = library.images.humanoid;
                             Transparency = 0;
                             ZIndex = z+4;
-                            Parent = objs.background;
-                        )
+                            Parent = objs.holder;
+                        })
 
+                        objs.border1 = utility:Draw('Square', {
+                            Size = newUDim2(1,2,1,2);
+                            Position = newUDim2(0,-1,0,-1);
+                            ThemeColor = 'Option Border 1';
+                            ZIndex = z+1;
+                            Parent = objs.background;
+                        })
+
+                        objs.border2 = utility:Draw('Square', {
+                            Size = newUDim2(1,2,1,2);
+                            Position = newUDim2(0,-1,0,-1);
+                            ThemeColor = 'Option Border 2';
+                            ZIndex = z;
+                            Parent = objs.border1;
+                        })
+
+                        --[[ попозже заюзаю, пока не нужно.
                         utility:Connectionobjs.holder.MouseEnter, function()
                             objs.border1.ThemeColor = 'Accent';
                         end
@@ -3032,8 +3056,10 @@ function library:init()
                         utility:Connectionobjs.holder.MouseButton1Down, function()
                             humanoid:SetState(not humanoid.state);
                         end
+                        --]]
 
-                    end--]]
+                    end
+
                     return humespanoid
                 end
                 -- // Slider
