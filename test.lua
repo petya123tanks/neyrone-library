@@ -2069,16 +2069,14 @@ function library:init()
                         Parent = objs.background;
                     })
 
-                    if not huy then
-                        objs.textlabel = utility:Draw('Text', {
-                            Position = newUDim2(.0425,0,0,-7);
-                            ThemeColor = 'Primary Text';
-                            Size = 13;
-                            Font = 2;
-                            ZIndex = z+1;
-                            Parent = objs.background;
-                        })
-                    end
+                    objs.textlabel = utility:Draw('Text', {
+                        Position = newUDim2(.0425,0,0,-7);
+                        ThemeColor = 'Primary Text';
+                        Size = 13;
+                        Font = 2;
+                        ZIndex = z+1;
+                        Parent = objs.background;
+                    })
 
                     objs.optionholder = utility:Draw('Square',{
                         Size = huy and newUDim2(0,0,0,0) or newUDim2(1-.03,0,1,-15);
