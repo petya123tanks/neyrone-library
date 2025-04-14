@@ -736,7 +736,7 @@ function library:init()
         end
     end
 
-    local screenGui = Instance.new('ScreenGui');
+    --[[local screenGui = Instance.new('ScreenGui');
     if syn then syn.protect_gui(screenGui); end
     screenGui.Parent = game:GetService('CoreGui');
     screenGui.Enabled = true;
@@ -751,7 +751,7 @@ function library:init()
 
     utility:Connection(library.unloaded, function()
         screenGui:Destroy()
-    end)
+    end)--]]
 
     utility:Connection(inputservice.InputBegan, function(input, gpe)
         if self.hasInit then
@@ -848,7 +848,7 @@ function library:init()
     
     function self:SetOpen(bool)
         self.open = bool;
-        screenGui.Enabled = bool;
+        --screenGui.Enabled = bool;
 
         if bool and library.flags.disablemenumovement then
             actionservice:BindAction(
