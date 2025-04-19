@@ -1207,7 +1207,7 @@ function library:init()
 
             objs.imagebackground = utility:Draw('Image', {
                 Size = size;
-                Position = newUDim2(0, 450, 0, 150);
+                Position = newUDim2(0, 500, 0, 170);
                 Data = library.images.blackstartv;
                 ThemeColor = 'Accent';
                 ZIndex = z+1;
