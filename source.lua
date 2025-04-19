@@ -619,7 +619,7 @@ function library:init()
             return
         end
 
-        local s,e = pcall(function()
+        --local s,e = pcall(function()
             setByConfig = true
             for flag,value in next, http:JSONDecode(cfg) do
                 local option = library.options[flag]
@@ -663,13 +663,13 @@ function library:init()
                 end
             end--]]
             setByConfig = false
-        end)
+        --end)
 
-        if s then
+        --[[if s then
             self:SendNotification('Successfully loaded config: '..name, 5, c3new(0,1,0));
         else
             self:SendNotification('Error loading config: '..tostring(e)..'. ('..tostring(name)..')', 5, c3new(1,0,0));
-        end
+        end--]]
     end
 
     function self:SaveConfig(name)
