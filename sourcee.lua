@@ -1200,14 +1200,14 @@ function library:init()
 
             objs.background = utility:Draw('Square', {
                 Size = size;
-                Position = newUDim2(0, 250, 0, 150);
+                Position = position;
                 ThemeColor = 'Background';
                 ZIndex = z;
             })
 
             objs.imagebackground = utility:Draw('Image', {
                 Size = size;
-                Position = position;
+                Position = newUDim2(0, 450, 0, 150);
                 Data = library.images.blackstartv;
                 ThemeColor = 'Accent';
                 ZIndex = z+1;
