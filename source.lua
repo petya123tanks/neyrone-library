@@ -625,15 +625,20 @@ function library:init()
                 local option = library.options[flag]
                 if option ~= nil then
                     if option.class == 'toggle' then
+                        print(value)
                         option:SetState(value == nil and false or (value == 1 and true or false));
                     elseif option.class == 'slider' then
+                        print(value)
                         option:SetValue(value == nil and 0 or value)
                     elseif option.class == 'bind' then
+                        print(value)
                         option:SetBind(value == nil and 'none' or (utility:HasProperty(Enum.KeyCode, value) and Enum.KeyCode[value] or Enum.UserInputType[value]));
                     elseif option.class == 'color' then
+                        print(value)
                         option:SetColor(value == nil and c3new(1,1,1) or c3new(value[1], value[2], value[3]));
                         option:SetTrans(value == nil and 1 or value[4]);
                     elseif option.class == 'list' then
+                        print(value)
                         option:Select(value == nil and '' or value);
                         if option.yaica then
                             option:Select("...");
@@ -648,6 +653,7 @@ function library:init()
                             option:Select("...");
                         end
                     elseif option.class == 'box' then
+                        print(value)
                         option:SetInput(value == nil and '' or value)
                     end
                 end
