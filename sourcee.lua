@@ -290,7 +290,7 @@ local keyNames = {
 library.button1down = library.signal.new()
 library.button1up   = library.signal.new()
 library.mousemove   = library.signal.new()
---library.unloaded    = library.signal.new();
+library.unloaded    = library.signal.new();
 
 local button1down, button1up, mousemove = library.button1down, library.button1up, library.mousemove
 local mb1down = false;
@@ -580,7 +580,7 @@ end
 library.utility = utility
 
 function library:Unload()
-    --library.unloaded:Fire();
+    library.unloaded:Fire();
     for _,c in next, self.connections do
         c:Disconnect()
     end
@@ -721,10 +721,10 @@ function library:init()
     screenGui.Enabled = true;
     utility:Instance('ImageButton', {
         Parent = screenGui,
-        Visible = true,
+        Visible = false,
         Modal = true,
         Size = UDim2.new(1,0,1,0),
-        ZIndex = 9999999999,
+        ZIndex = 1,
         Transparency = 1;
     })
 
