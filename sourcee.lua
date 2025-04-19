@@ -1200,7 +1200,7 @@ function library:init()
 
             objs.background = utility:Draw('Square', {
                 Size = size;
-                Position = position;
+                Position = newUDim2(0, 250, 0, 150);
                 ThemeColor = 'Background';
                 ZIndex = z;
             })
