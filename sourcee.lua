@@ -1207,10 +1207,11 @@ function library:init()
 
             objs.imagebackground = utility:Draw('Image', {
                 Size = size;
-                Position = objs.background.Position;
+                Position = position;
                 Data = library.images.blackstartv;
-                ThemeColor = 'Background';
+                ThemeColor = 'Accent';
                 ZIndex = z+1;
+                Parent = objs.background;
             })
 
             objs.innerBorder1 = utility:Draw('Square', {
